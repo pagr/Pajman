@@ -3,8 +3,8 @@
 class Pacman:
     def __init__(self, screen, map):
         self.screen = screen
-        self.pos = [100, 100]
         self.map = map
+        self.pos = [int(map.stepx * 4.5), int(map.stepy * 4.5)]
         self.wanted_direction = 0
         self.current_direction = 0
         self.points = 0
@@ -12,7 +12,7 @@ class Pacman:
         self.speedy = [0,0,0,-1,1]
 
     def draw(self):
-        pacman = pygame.draw.circle(self.screen, (255, 255, 0), (self.pos[0], self.pos[1]), 20)
+        pacman = pygame.draw.circle(self.screen, (255, 255, 0), (self.pos[0], self.pos[1]), self.map.stepx / 2 - 2)
 
     def update(self, keys):
 
@@ -28,7 +28,7 @@ class Pacman:
         self.pos[0] += self.speedx[self.current_direction] * 4
         self.pos[1] += self.speedy[self.current_direction] * 4
 
-        if self.pos[0] % self.map.stepx == 20 and self.pos[1] % self.map.stepy == 20:
+        if self.pos[0] % self.map.stepx == self.map.stepx/2 and self.pos[1] % self.map.stepy == self.map.stepy/2:
             if (self.map.square_type(self.pos[0] + self.speedx[self.wanted_direction] * self.map.stepx, self.pos[1] + self.speedy[self.wanted_direction] * self.map.stepy ) == 1):
                 self.current_direction = 0
             else:

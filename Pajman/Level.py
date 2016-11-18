@@ -37,7 +37,7 @@ class Level:
                 if (self.grid[x][y] == 1):
                     pygame.draw.rect(self.screen, (255,255,255), (int(x*self.stepx), int(y*self.stepy), self.stepx, self.stepy))    
                 elif (self.grid[x][y] == 2):     
-                    pygame.draw.circle(self.screen, (255,255,0), (int(x*self.stepx+self.stepx/2), int(y*self.stepy+self.stepy/2)), 7)
+                    pygame.draw.circle(self.screen, (255,255,0), (int(x*self.stepx+self.stepx/2), int(y*self.stepy+self.stepy/2)), 3)
                 elif (self.grid[x][y] == 3):     
-                    pygame.draw.circle(self.screen, (255,255,0),(int(x*self.stepx+self.stepx/2), int(y*self.stepy+self.stepy/2)), 10)
+                    pygame.draw.circle(self.screen, (255,255,0),(int(x*self.stepx+self.stepx/2), int(y*self.stepy+self.stepy/2)), 5)
 

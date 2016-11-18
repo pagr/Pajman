@@ -6,8 +6,8 @@ import Dot
 
 pygame.init()
 
-WIDTH = 720
-HEIGHT = 1280
+WIDTH = 360
+HEIGHT = 640
 
 
 clock = pygame.time.Clock()
