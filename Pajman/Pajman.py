@@ -2,23 +2,40 @@ import pygame
 import sys
 import Level
 import Pacman
+import Dot
 
 print sys.path[0]
 
 pygame.init()
 
-screen = pygame.display.set_mode((640, 480))
-map = Level.Level(screen, 50, 50)
+WIDTH = 720
+HEIGHT = 1280
+
+screen = pygame.display.set_mode((HEIGHT, WIDTH))
+map = Level.Level(screen, HEIGHT, WIDTH)
+
+dots = []
+
 pacman = Pacman.Pacman(screen)
+for i in range(0,10):
+    dots.append(Dot.Dot(screen, i*146 % 500, i*10))
+
+drawables = [map] + dots +[pacman]
+updatables = [pacman]
 
 while(True):
     screen.fill((0,0,0))
-    map.draw()
-    pacman.draw()
+
     keys = pygame.key.get_pressed()
-    pacman.update(keys)
+    for updatable in updatables:
+        updatable.update(keys)
+
+    for drawable in drawables:
+        drawable.draw()
+
 
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+    pygame.time.wait(16)
