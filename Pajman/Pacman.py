@@ -38,5 +38,4 @@ class Pacman:
     def move_down(self):
         self.pos[1] += 40
 
-    def move_change(self):
-        self.pos[0] = self.pos[0]
+  
