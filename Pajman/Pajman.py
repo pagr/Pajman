@@ -33,8 +33,10 @@ while(True):
     for drawable in drawables:
         drawable.draw()
 
-    pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+
+    pygame.display.flip()
+
     clock.tick(60)
