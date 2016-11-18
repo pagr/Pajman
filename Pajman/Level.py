@@ -8,4 +8,4 @@ class Level:
 
     def draw(self):
         rect = pygame.draw.rect(self.screen, (255, 255, 255), (0, 0, self.width, self.height))
-        outer_wall = pygame.draw.lines(self.screen, (255, 255, 255), [(10, 50), (200, 200)], 5)
+        #outer_wall = pygame.draw.lines(self.screen, (255, 255, 255), [(10, 50), (200, 200)], 5)
