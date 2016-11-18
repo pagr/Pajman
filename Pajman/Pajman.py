@@ -15,8 +15,7 @@ pacman = Pacman.Pacman(screen)
 for i in range(0,10):
     dots.append(Dot.Dot(screen, i*146 % 500, i*10))
 
-drawables = [map, pacman]
-drawables = drawables + dots
+drawables = [map] + dots +[pacman]
 updatables = [pacman]
 
 while(True):
@@ -34,3 +33,4 @@ while(True):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+    pygame.time.wait(16)
