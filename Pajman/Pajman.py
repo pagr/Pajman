@@ -4,8 +4,6 @@ import Level
 import Pacman
 import Dot
 
-print sys.path[0]
-
 pygame.init()
 
 WIDTH = 720

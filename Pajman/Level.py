@@ -25,19 +25,19 @@ class Level:
             self.grid[self.countx-1][y] = 1
 
     def square_type(self, x, y):
-        return self.grid[x/self.stepx][y/self.stepy]
+        return self.grid[ int(x/self.stepx)][int(y/self.stepy)]
 
     def remove_dot(self, x, y):
-        self.grid[x/self.stepx][y/self.stepy] = 0
+        self.grid[int(x/self.stepx)][int(y/self.stepy)] = 0
 
     def draw(self):
         
         for x in range(0, self.countx):     
             for y in range(0, self.county): 
                 if (self.grid[x][y] == 1):
-                    pygame.draw.rect(self.screen, (255,255,255), (x*self.stepx, y*self.stepy, self.stepx, self.stepy))    
+                    pygame.draw.rect(self.screen, (255,255,255), (int(x*self.stepx), int(y*self.stepy), self.stepx, self.stepy))    
                 elif (self.grid[x][y] == 2):     
-                    pygame.draw.circle(self.screen, (255,255,0), (x*self.stepx+self.stepx/2,y*self.stepy+self.stepy/2), 7)
+                    pygame.draw.circle(self.screen, (255,255,0), (int(x*self.stepx+self.stepx/2), int(y*self.stepy+self.stepy/2)), 7)
                 elif (self.grid[x][y] == 3):     
-                    pygame.draw.circle(self.screen, (255,255,0),(x*self.stepx+self.stepx/2, y*self.stepy+self.stepy/2), 10)
+                    pygame.draw.circle(self.screen, (255,255,0),(int(x*self.stepx+self.stepx/2), int(y*self.stepy+self.stepy/2)), 10)
 

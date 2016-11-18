@@ -37,7 +37,6 @@ class Pacman:
         if (self.map.square_type(self.pos[0], self.pos[1]) == 2 or self.map.square_type(self.pos[0], self.pos[1]) == 3):
             self.map.remove_dot(self.pos[0], self.pos[1])
             self.points += 1
-            print self.points
 
     
   
