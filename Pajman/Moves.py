@@ -1,6 +1,6 @@
 ﻿import pygame
 
-class Pacman:
+class Moves(object):
     def __init__(self, screen, map):
         self.screen = screen
         self.map = map
@@ -14,23 +14,8 @@ class Pacman:
     def draw(self):
         pacman = pygame.draw.circle(self.screen, (255, 255, 0), (self.pos[0], self.pos[1]), self.map.stepx / 2 - 2)
 
-        font = pygame.font.Font(None, 26)
-        text = font.render("score : " + str(self.points), 1, (0, 0, 0))
-        textpos = text.get_rect()
-        textpos.centerx = self.screen.get_rect().centerx
-        self.screen.blit(text, textpos)
-
     def update(self, keys):
 
-        if keys[pygame.K_RIGHT]:
-            self.wanted_direction = 1
-        elif keys[pygame.K_LEFT]:
-            self.wanted_direction = 2
-        elif keys[pygame.K_UP]:
-            self.wanted_direction = 3
-        elif keys[pygame.K_DOWN]:
-            self.wanted_direction = 4
-        
         self.pos[0] += self.speedx[self.current_direction] * 4
         self.pos[1] += self.speedy[self.current_direction] * 4
 

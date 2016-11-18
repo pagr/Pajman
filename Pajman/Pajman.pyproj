@@ -33,6 +33,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Level.py" />
+    <Compile Include="Moves.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Pacman.py" />
     <Compile Include="Pajman.py" />
   </ItemGroup>

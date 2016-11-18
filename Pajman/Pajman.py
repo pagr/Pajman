@@ -21,7 +21,7 @@ ghost = Ghost.Ghost(screen, map)
 
 drawables = [map] + [pacman] + [ghost]
 updatables = [pacman]
-b1 = 1
+
 
 while(True):
     screen.fill((0,0,0))
@@ -33,18 +33,10 @@ while(True):
     for drawable in drawables:
         drawable.draw()
 
-        oldb = b1
-        b1,b2,b3 = pygame.mouse.get_pressed()
-        x,y = pygame.mouse.get_pos()
-
-        if b1 != oldb and b1 == 1:
-            map.grid[x/map.stepx][y/map.stepy] = (map.grid[x/map.stepx][y/map.stepy] + 1) % 4
-            oldb = b1
-        if b3:
-            map.save()
-
-    pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+
+    pygame.display.flip()
+
     clock.tick(60)

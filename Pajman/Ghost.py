@@ -1,9 +1,11 @@
 ﻿import pygame
-
-class Ghost(object):
+import Moves
+class Ghost(Moves.Moves):
     """description of class"""
-
-    def __init__(self, screen, map):
+   
+    def  __init__(self, screen, map):
+        super(self.__class__, self).__init__(screen, map)
+        
         self.screen = screen
         self.pos = [300, 300]
         self.map = map
