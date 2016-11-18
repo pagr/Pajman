@@ -27,6 +27,9 @@
     <Compile Include="Dot.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ghost.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Level.py" />
     <Compile Include="Pacman.py" />
     <Compile Include="Pajman.py" />

@@ -1,8 +1,9 @@
-import pygame
+﻿import pygame
 import sys
 import Level
 import Pacman
 import Dot
+import Ghost
 
 print sys.path[0]
 
@@ -18,13 +19,15 @@ map = Level.Level(screen, HEIGHT, WIDTH)
 
 
 pacman = Pacman.Pacman(screen, map)
+ghost = Ghost.Ghost(screen, map)
 
-drawables = [map] +[pacman]
+drawables = [map] + [pacman] + [ghost]
 updatables = [pacman]
+
 
 while(True):
     screen.fill((0,0,0))
-
+    
     keys = pygame.key.get_pressed()
     for updatable in updatables:
         updatable.update(keys)
