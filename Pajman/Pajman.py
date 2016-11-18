@@ -17,7 +17,7 @@ screen = pygame.display.set_mode((HEIGHT, WIDTH))
 map = Level.Level(screen, HEIGHT, WIDTH)
 
 
-pacman = Pacman.Pacman(screen)
+pacman = Pacman.Pacman(screen, map)
 
 drawables = [map] +[pacman]
 updatables = [pacman]
