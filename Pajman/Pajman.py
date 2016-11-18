@@ -16,13 +16,10 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode((HEIGHT, WIDTH))
 map = Level.Level(screen, HEIGHT, WIDTH)
 
-dots = []
 
 pacman = Pacman.Pacman(screen)
-for i in range(0,10):
-    dots.append(Dot.Dot(screen, i*146 % 500, i*10))
 
-drawables = [map] + dots +[pacman]
+drawables = [map] +[pacman]
 updatables = [pacman]
 
 while(True):
