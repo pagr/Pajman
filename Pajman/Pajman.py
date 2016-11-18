@@ -4,7 +4,6 @@ import Level
 import Pacman
 import Dot
 import Ghost
-import random
 
 pygame.init()
 
@@ -22,7 +21,7 @@ ghost = Ghost.Ghost(screen, map)
 
 drawables = [map] + [pacman] + [ghost]
 updatables = [pacman]
-ghostmovables = [ghost]
+b1 = 0
 
 while(True):
     screen.fill((0,0,0))
@@ -31,12 +30,19 @@ while(True):
     for updatable in updatables:
         updatable.update(keys)
 
-    ghostKeys = random.randint(0,4)
-    for ghostmovable in ghostmovables:
-        ghostmovable.update(ghostKeys)
-
     for drawable in drawables:
         drawable.draw()
+
+    oldb = b1
+    b1,b2,b3 = pygame.mouse.get_pressed()
+    x,y = pygame.mouse.get_pos()
+ 
+    if b1 != oldb and b1 == 1:
+        map.grid[x/map.stepx][y/map.stepy] = (map.grid[x/map.stepx][y/map.stepy] + 1) % 4
+        oldb = b1
+    if b3:
+        map.save()
+ 
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

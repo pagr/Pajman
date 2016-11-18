@@ -1,5 +1,7 @@
 import pygame
 import random
+import pickle
+
 class Level:
     def __init__(self, screen, width, height):
         self.width = width
@@ -23,6 +25,15 @@ class Level:
         for y in range(0, self.county):
             self.grid[0][y] = 1
             self.grid[self.countx-1][y] = 1
+        self.load()
+
+    def save(self):
+        with open("banan",'wb') as f:
+            pickle.dump(self.grid,f)
+
+    def load(self):
+        with open("banan",'rb') as f:
+            self.grid = pickle.load(f)
 
     def square_type(self, x, y):
         return self.grid[ int(x/self.stepx)][int(y/self.stepy)]
