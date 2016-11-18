@@ -5,12 +5,10 @@ import Pacman
 import Dot
 import Ghost
 
-print sys.path[0]
-
 pygame.init()
 
-WIDTH = 720
-HEIGHT = 1280
+WIDTH = 360
+HEIGHT = 640
 
 
 clock = pygame.time.Clock()
@@ -34,7 +32,6 @@ while(True):
 
     for drawable in drawables:
         drawable.draw()
-
 
     pygame.display.flip()
     for event in pygame.event.get():
