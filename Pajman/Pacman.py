@@ -20,16 +20,19 @@ class Pacman:
      
 
     def move_right(self):
-        self.pos[0] += 1
+        for i in range(0,100):
+            self.pos[0] += 1
 
     def move_left(self):
-        self.pos[0] -= 1
+        for i in range(0,100):
+            self.pos[0] -= 1
 
     def move_up(self):
-        self.pos[1] -= 1
+         for i in range(0,100):
+            self.pos[1] -= 1
 
     def move_down(self):
-        self.pos[1] += 1
+        for i in range(0,100):
+            self.pos[1] += 1
 
-    def move_change(self):
-        self.pos[0] = self.pos[0]
+  
