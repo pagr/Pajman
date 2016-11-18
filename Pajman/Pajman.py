@@ -7,8 +7,11 @@ print sys.path[0]
 
 pygame.init()
 
-screen = pygame.display.set_mode((640, 480))
-map = Level.Level(screen, 50, 50)
+WIDTH = 720
+HEIGHT = 1280
+
+screen = pygame.display.set_mode((HEIGHT, WIDTH))
+map = Level.Level(screen, HEIGHT, WIDTH)
 pacman = Pacman.Pacman(screen)
 
 while(True):
