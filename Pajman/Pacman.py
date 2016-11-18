@@ -27,15 +27,15 @@ class Pacman:
             self.map.remove_dot(self.pos[0], self.pos[1])     
 
     def move_right(self):
-        self.pos[0] += 40
+        self.pos[0] += self.map.stepx
 
     def move_left(self):
-        self.pos[0] -= 40
+        self.pos[0] -= self.map.stepx
 
     def move_up(self):
-        self.pos[1] -= 40
+        self.pos[1] -= self.map.stepy
 
     def move_down(self):
-        self.pos[1] += 40
+        self.pos[1] += self.map.stepy
 
   
