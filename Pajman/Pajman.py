@@ -11,6 +11,8 @@ pygame.init()
 WIDTH = 720
 HEIGHT = 1280
 
+
+clock = pygame.time.Clock()
 screen = pygame.display.set_mode((HEIGHT, WIDTH))
 map = Level.Level(screen, HEIGHT, WIDTH)
 
@@ -38,4 +40,4 @@ while(True):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-    pygame.time.wait(16)
+    clock.tick(60)
