@@ -4,6 +4,9 @@ import Level
 import Pacman
 import Dot
 import Ghost
+import GhostTwo
+import GhostThree
+import GhostFour
 import random
 
 pygame.init()
@@ -19,25 +22,45 @@ map = Level.Level(screen, HEIGHT, WIDTH)
 
 pacman = Pacman.Pacman(screen, map)
 ghost = Ghost.Ghost(screen, map)
+ghosttwo = GhostTwo.GhostTwo(screen, map)
+ghostthree = GhostThree.GhostThree(screen, map)
+ghostfour = GhostFour.GhostFour(screen, map)
 
-drawables = [map] + [pacman] + [ghost]
+drawables = [map] + [pacman] + [ghost] + [ghosttwo] + [ghostthree] + [ghostfour]
 updatables = [pacman]
-ghostmovables = [ghost]
+ghostmovables = [ghost] 
+secondghostmovables = [ghosttwo]
+thirdghostmovables = [ghostthree]
+fourthghostmovables = [ghostfour]
 b1 = 0
 
 while(True):
     screen.fill((0,0,0))
     
+    for drawable in drawables:
+        drawable.draw()
+
     keys = pygame.key.get_pressed()
     for updatable in updatables:
         updatable.update(keys)
 
-    ghostkeys = random.randint(0,4)
+    ghostkey = random.randint(0,4)
     for ghostmovable in ghostmovables:
-        ghostmovable.update(ghostkeys)
+        ghostmovable.update(ghostkey)
 
-    for drawable in drawables:
-        drawable.draw()
+    ghostkeytwo = random.randint(0,4)
+    for secondghostmovable in secondghostmovables:
+        secondghostmovable.update(ghostkeytwo)
+
+    ghostkeythree = random.randint(0,4)
+    for thirdghostmovable in thirdghostmovables:
+        thirdghostmovable.update(ghostkeythree)
+
+    ghostkeyfour = random.randint(0,4)
+    for fourthghostmovable in fourthghostmovables:
+        fourthghostmovable.update(ghostkeyfour)
+
+   
 
     oldb = b1
     b1,b2,b3 = pygame.mouse.get_pressed()
