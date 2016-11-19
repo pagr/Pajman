@@ -10,17 +10,32 @@ class Pacman:
         self.points = 0
         self.speedx = [0,1,-1,0,0]
         self.speedy = [0,0,0,-1,1]
-        self.mouth_angle = 6.24
+        self.mouth_low_angle = 0.7
+        self.mouth_high_angle = 5.5
         self.mouth_opening = False
 
     def draw(self):
-        pacman = pygame.draw.arc(self.screen, (255, 255, 0), (self.pos[0] - self.map.stepx/2, self.pos[1] - self.map.stepy/2, self.map.stepx, self.map.stepy  ), 0, self.mouth_angle, self.map.stepx/2)
+        pacman = pygame.draw.arc(self.screen, (255, 255, 0), (self.pos[0] - self.map.stepx/2, self.pos[1] - self.map.stepy/2, self.map.stepx, self.map.stepy), self.mouth_low_angle, self.mouth_high_angle, self.map.stepx/2)
 
         font = pygame.font.Font(None, 26)
         text = font.render("score : " + str(self.points), 1, (0, 0, 0))
         textpos = text.get_rect()
         textpos.centerx = self.screen.get_rect().centerx
         self.screen.blit(text, textpos)
+
+    def mouth_direction(self, current_direction):
+
+        if self.mouth_opening:
+            self.mouth_high_angle += 0.1
+            self.mouth_low_angle -= 0.1
+            if self.mouth_high_angle > 6.2:
+                self.mouth_opening = False
+
+        else:
+            self.mouth_high_angle -= 0.1
+            self.mouth_low_angle += 0.1
+            if self.mouth_high_angle < 5.5:
+                self.mouth_opening = True
 
     def update(self, keys):
 
@@ -36,14 +51,7 @@ class Pacman:
         self.pos[0] += self.speedx[self.current_direction] * 4
         self.pos[1] += self.speedy[self.current_direction] * 4
 
-        if self.mouth_opening:
-            self.mouth_angle += 0.2
-            if self.mouth_angle > 6.10:
-                self.mouth_opening = False
-        else:
-            self.mouth_angle -= 0.2
-            if self.mouth_angle < 4.6:
-                self.mouth_opening = True
+        self.mouth_direction(self.current_direction)
 
         if self.pos[0] % self.map.stepx == self.map.stepx/2 and self.pos[1] % self.map.stepy == self.map.stepy/2:
             if (self.map.square_type(self.pos[0] + self.speedx[self.wanted_direction] * self.map.stepx, self.pos[1] + self.speedy[self.wanted_direction] * self.map.stepy ) == 1):
