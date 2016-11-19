@@ -4,7 +4,7 @@ class Pacman:
     def __init__(self, screen, map):
         self.screen = screen
         self.map = map
-        self.pos = [int(map.stepx * 4.5), int(map.stepy * 4.5)]
+        self.pos = [int(map.stepx * 20.5), int(map.stepy * 11.5)]
         self.wanted_direction = 0
         self.current_direction = 0
         self.points = 0
