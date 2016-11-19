@@ -13,8 +13,8 @@ class Moves(object):
 
     def draw(self):
         pacman = pygame.draw.circle(self.screen, (255, 255, 0), (self.pos[0], self.pos[1]), self.map.stepx / 2 - 2)
-
-    def update(self, keys):
+    
+    def update(self, keys, isGhost):
 
         self.pos[0] += self.speedx[self.current_direction] * 4
         self.pos[1] += self.speedy[self.current_direction] * 4
@@ -24,10 +24,10 @@ class Moves(object):
                 self.current_direction = 0
             else:
                 self.current_direction = self.wanted_direction
-
-        if (self.map.square_type(self.pos[0], self.pos[1]) == 2 or self.map.square_type(self.pos[0], self.pos[1]) == 3):
-            self.map.remove_dot(self.pos[0], self.pos[1])
-            self.points += 1
+        if(isGhost == False):
+            if (self.map.square_type(self.pos[0], self.pos[1]) == 2 or self.map.square_type(self.pos[0], self.pos[1]) == 3):
+                self.map.remove_dot(self.pos[0], self.pos[1])
+                self.points += 1
 
     
   
