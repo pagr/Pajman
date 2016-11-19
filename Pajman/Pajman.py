@@ -38,7 +38,7 @@ while(True):
     x,y = pygame.mouse.get_pos()
  
     if b1 != oldb and b1 == 1:
-        map.grid[x/map.stepx][y/map.stepy] = (map.grid[x/map.stepx][y/map.stepy] + 1) % 4
+        map.grid[x/map.stepx][y/map.stepy] = 0
         oldb = b1
     if b3:
         map.save()
