@@ -17,11 +17,12 @@ screen = pygame.display.set_mode((HEIGHT, WIDTH))
 map = Level.Level(screen, HEIGHT, WIDTH)
 
 
-pacman = Pacman.Pacman(screen, map)
+pacmanA = Pacman.Pacman(screen, map,0)
+pacmanB = Pacman.Pacman(screen, map,1)
 ghost = Ghost.Ghost(screen, map)
 
-drawables = [map] + [pacman] + [ghost]
-updatables = [pacman]
+drawables = [map] + [pacmanA, pacmanB] + [ghost]
+updatables = [pacmanA, pacmanB]
 ghostmovables = [ghost]
 b1 = 0
 
