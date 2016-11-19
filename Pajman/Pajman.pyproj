@@ -32,15 +32,6 @@
     <Compile Include="Ghost.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GhostFour.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GhostThree.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GhostTwo.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Level.py" />
     <Compile Include="Moves.py">
       <SubType>Code</SubType>

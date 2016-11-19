@@ -1,7 +1,7 @@
 ﻿import pygame
 
 class Pacman:
-    def __init__(self, screen, map, player):
+    def __init__(self, screen, map, player, ghosts):
         self.screen = screen
         self.map = map
         self.pos = [int(map.stepx * 20.5), int(map.stepy * 11.5)]
@@ -14,9 +14,11 @@ class Pacman:
         self.mouth_high_angle = 5.5
         self.mouth_opening = False
         self.player = player
+        self.ghosts = ghosts
+        self.color = (255,255,0)
 
     def draw(self):
-        pacman = pygame.draw.arc(self.screen, (255, 255, 0), (self.pos[0] - self.map.stepx/2, self.pos[1] - self.map.stepy/2, self.map.stepx, self.map.stepy), self.mouth_low_angle, self.mouth_high_angle, self.map.stepx/2)
+        pacman = pygame.draw.arc(self.screen, self.color, (self.pos[0] - self.map.stepx/2, self.pos[1] - self.map.stepy/2, self.map.stepx, self.map.stepy), self.mouth_low_angle, self.mouth_high_angle, self.map.stepx/2)
 
         font = pygame.font.Font(None, 26)
         text = font.render("score : " + str(self.points), 1, (0, 0, 0))
@@ -72,6 +74,12 @@ class Pacman:
         if (self.map.square_type(self.pos[0], self.pos[1]) == 2 or self.map.square_type(self.pos[0], self.pos[1]) == 3):
             self.map.remove_dot(self.pos[0], self.pos[1])
             self.points += 1
+
+        for ghost in self.ghosts:
+            if (ghost.pos[0]-self.pos[0])**2 + (ghost.pos[1]-self.pos[1])**2 < 20:
+                self.speedx=[0,0,0,0,0]
+                self.speedy=[0,0,0,0,0]
+                self.color = (255,0,0)
 
     
   
